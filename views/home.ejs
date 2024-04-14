@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+
+<html>
+	<!--head-->
+	<head>
+		<title>書贏●首頁</title>
+	<%- include('./partials/header.ejs') %>
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<section id="header">
+				<div class="container">
+					<!-- Logo -->
+					<h1><a href="/home" id="logo">書贏●首頁</a></h1>
+					<%- include('./partials/nav.ejs') %>
+				</div>
+			</section>
+				<!-- books -->
+				<section id="features">
+					<header class="style1">
+						<h2><strong>商品頁面</strong></h2>
+					</header>
+					
+					<div class="container">
+						<!-- books1 -->
+						<article class="pricing-item">
+
+							<h3>最新上架二手書</h3><br>
+							<div class="row aln-center">
+								<table>
+									<% for (var i=0 ; i < 4 ; i++) { %>
+										<div class="col-3 col-12-medium">
+											<section class="books">
+												<a href="/product/<%=random[i].book_id%>" class="image featured">
+													<div class="photo1">
+														<img class="imgsrc" src="/static/BookImg/<%=random[i].book_img%>"  style="width:195px;height:310px;font-size:8px;" />
+													</div>
+												</a>
+												<h3><p href="/product/<%=random[i].book_id%> class="name" id="name"> <%=random[i].book_name %> </p></h3>
+												<div class="display-flex">
+													<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+														價錢：</p>	
+													<p class="price" id="price"><%= random[i].book_price%></p>
+												</div>			
+												
+												<ul class="actions">
+													<li>
+														<div class="display-flex">
+															<div id="addcollect" class="col-8 col-12-medium imp-medium">
+																<a href="/collect/add/<%= random[i].book_id %> " class="button style1 large" style="width:120px;height:40px;font-size:8px;">加入收藏</a>
+															</div>
+															<a>&nbsp</a>
+															<div id="addcart" class="col-8 col-12-medium imp-medium">
+																<a href="/cart/add/<%=random[i].book_id%>" class="button style2 large" style="width:120px;height:40px;font-size:8px;">加入購物車</a>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</section>
+										</div>
+									<% } %>
+								</table>
+							</div>
+						</article>
+						<!-- books2 -->
+						<p> </p>
+						<h3>學習暢銷書</h3><br>
+						<div class="container">
+							<div class="row aln-center">
+								<table>
+									<% for (var i=0 ; i < (hot.length-hot.length%6) ; i++) { %>
+										<div class="col-2 col-10-medium">
+											<section class="books">
+												<div class="photo1">
+														<a href="/product/<%=hot[i].book_id%>" class="image featured" ><img class="imgsrc" src="..\static\BookImg\<%=hot[i].book_img%>" alt="" style="width:145px;height:200px;font-size:6px;">
+														</a>
+												</div>
+												<h3><a href="/product/<%=hot[i].book_id%>" class="name" id="name"> <%=hot[i].book_name %> </a></h3>
+												<div class="display-flex">
+													<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+														價錢：</p>	
+													<p class="price" id="price"><%= hot[i].book_price%></p>
+												</div>			
+												
+												<ul class="actions">
+													<li>
+														<div class="display-flex">
+															<div id="addcollect" class="col-8 col-12-medium imp-medium">
+																<a href="/collect/add/<%= hot[i].book_id %> " class="button style1 large" style="width:80px;height:26px;font-size:3px;"><img src="../static/images/collect1.png" href="/collect" style="width:20px;height:20px;" alt="我的收藏"></a>
+															</div>
+															<a>&nbsp</a>
+															<div id="addcart" class="col-8 col-12-medium imp-medium">
+																<a href="/cart/add/<%=hot[i].book_id%>" class="button style2 large" style="width:80px;height:26px;font-size:2px;"><img src="../static/images/cart1.png" href="/collect" style="width:20px;height:20px;" alt="我的收藏"></a>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</section>
+										</div>
+									<% } %>
+								</table>
+							</div>
+						</div>
+
+						<!-- books3 -->
+						<p> </p>
+						<h3>熱門商品</h3><br>
+						<div class="container">
+							<div class="row aln-center">
+								<table>
+									<% for (var i=0 ; i < (learn.length-learn.length%6) ; i++) { %>
+										<div class="col-2 col-10-medium">
+											<section class="books">
+												<div class="photo1">
+														<a href="/product/<%=learn[i].book_id%>" class="image featured" ><img class="imgsrc" src="..\static\BookImg\<%=learn[i].book_img%>" alt="" style="width:145px;height:200px;font-size:6px;">
+														</a>
+												</div>
+												<h3><a href="/product/<%=learn[i].book_id%>" class="name" id="name"> <%=learn[i].book_name %> </a></h3>
+												<div class="display-flex">
+													<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+														價錢：</p>	
+													<p class="price" id="price"><%= learn[i].book_price%></p>
+												</div>			
+												
+												<ul class="actions">
+													<li>
+														<div class="display-flex">
+															<div id="addcollect" class="col-8 col-12-medium imp-medium">
+																<a href="/collect/add/<%= learn[i].book_id %> " class="button style1 large" style="width:80px;height:26px;font-size:3px;"><img src="../static/images/collect1.png" href="/collect" style="width:20px;height:20px;" alt="我的收藏"></a>
+															</div>
+															<a>&nbsp</a>
+															<div id="addcart" class="col-8 col-12-medium imp-medium">
+																<a href="/cart/add/<%=learn[i].book_id%>" class="button style2 large" style="width:80px;height:26px;font-size:2px;"><img src="../static/images/cart1.png" href="/collect" style="width:20px;height:20px;" alt="我的收藏"></a>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</section>
+										</div>
+									<% } %>
+								</table>
+							</div>
+						</div>
+					</div>		
+						
+				</section>
+
+
+		
+			<!-- Footer -->
+			<%- include('./partials/footer.ejs') %>
+
+		
+
+			<!-- Scripts -->
+			<script src="../static/js/jquery.min.js"></script>
+			<script src="../static/js/jquery.dropotron.min.js"></script>
+			<script src="../static/js/browser.min.js"></script>
+			<script src="../static/js/breakpoints.min.js"></script>
+			<script src="../static/js/util.js"></script>
+			<script src="../static/js/main.js"></script>
+		</div>
+	</body>
+
+</html>

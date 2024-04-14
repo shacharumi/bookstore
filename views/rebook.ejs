@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>書贏●回收</title>
+		<%- include('./partials/header.ejs') %>
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<section id="header">
+				<div class="container">
+					<!-- Logo -->
+					<h1 id="logo"><a href="/home">書贏●二手書回收</a></h1>
+					<%- include('./partials/nav.ejs') %>
+				</div>
+			</section>
+					<!-- Main -->
+			<section id="main">
+				<div class="container">
+					<div class="row">
+						<div id="sidebar" class="col-4 col-12-medium">
+							<section>
+								<ul class="divided">
+							<%- include('./partials/mempart.ejs') %>
+							</ul>
+							</section>
+						</div>
+						<!-- Content -->
+						
+
+							<!-- Post -->
+							<article class="box post">
+								<article class="pricing-item" style="height:800px; width:700px;">
+									<div class="container_1">
+										<header>
+											<h1 style="height: 60px; width: 300px;"><font size=8>書籍回收</font></h1>
+										</header>
+									</div>
+									
+									<form action="/rebook/add" method="POST" onsubmit="return status()">
+
+										<a>書名:</a>
+										<div class="container_1">
+											<div style="height: 60px; width: 500px;" class="box post">
+												<input  type="text" id="re_name" placeholder="請輸入書名" size=20 autocomplete="on" name="re_name" required="true">
+											</div>
+										</div>
+										<a>作者:</a>
+										<div class="container_1">
+											<div style="height: 60px; width: 500px;" class="box post">
+												<input  type="text" id="re_author" placeholder="請輸入作者" size=20 autocomplete="on" name="re_author" required="true">
+											</div>
+										</div>
+										
+
+										<a>原價:</a>
+										<div class="container_1">
+											<div style="height: 60px; width: 500px;" class="box post" >
+												<input type="text" id="re_price" placeholder="請輸入原價" size=20 autocomplete="off" name="re_price" oninput = "value=value.replace(/[^\d]/g,'')" required="true">
+											</div>
+										</div>
+										<a>書況:</a>
+										<div class="container_1">
+											<div style="height: 60px; width: 500px;" class="box post" >
+												<select name="re_status" id="re_status">
+													<option disabled selected hidden >請選擇書籍狀況</option>
+													<option value="0.6">全新</option>
+													<option value="0.5">7成~9成</option>
+													<option value="0.4">5成~7成</option>	
+												</select>
+											</div>
+										</div>
+										<div class="container_1">
+										<div class="popup" id="show" >
+											<br><input style="height:60px; width: 300px;"class="button_1"type="button" value="顯示預估獲得點數" onclick="compare()">
+											<br><br>估計可以獲得<span ><strong id="showcoin" class="word_2">0</strong></span>點
+										</div>
+										</div>
+										<a>&nbsp</a>
+										<div class="container">
+										<div class="display-flex">
+											
+											<div class="box post" id="recyclebutton">
+												<input style="width: 250px;"class="button"type="submit" value="回收" >
+											</div>
+											
+											<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+											<div class="box post" id="resetbutton">
+												<input style="width: 200px;" class="button"type="reset" value="清除">
+											</div>
+											
+										</div>
+										</div>
+										
+									</form>	
+									
+								</article>
+							</article>	
+					</div>			
+				</div>
+			</section>
+
+							
+				<!-- Footer -->
+				<%- include('./partials/footer.ejs') %>	
+			
+			<script>
+				function show() {
+					var popup = document.getElementById("popup_text");
+					popup.classList.toggle("show");
+				}
+			</script>
+			
+			<!-- Scripts -->
+			<script src="../static/js/jquery.min.js"></script>
+			<script src="../static/js/jquery.dropotron.min.js"></script>
+			<script src="../static/js/browser.min.js"></script>
+			<script src="../static/js/breakpoints.min.js"></script>
+			<script src="../static/js/util.js"></script>
+			<script src="../static/js/main.js"></script>
+			<script src="../static/js/rebook.js"></script>
+		</div>
+	</body>
+</html>

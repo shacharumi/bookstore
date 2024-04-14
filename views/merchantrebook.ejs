@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>書贏●商家頁面-回收書</title>
+	<%- include('./partials/headermerch.ejs') %>
+</head>
+<body class="homepage is-preload">
+	<div id="page-wrapper">
+
+
+
+		<!-- Header -->
+		<section id="header">
+			<div class="container">
+				<!-- Logo -->
+				<h1 id="logo"><a href="/merchant">書贏●商家頁面<br>-回收書</a></h1>
+				<!-- Nav -->
+				<%- include('./partials/navmerch.ejs') %>
+			</div>
+		</section>
+					<section id="main">
+						<div class="container">
+						<div class="container_1">
+								<header>
+									<h2>回收書資料：</h2>
+								</header>
+						</div>	
+						<div class="box post" style="height: 10px ;">
+							<div class="container_1">
+								<a size=10 href="/merchant/rebook">待入庫</a>
+								<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+								<a size=10 href="/merchant/showrebook/1">回收成功</a>
+								<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+								<a size=10 href="/merchant/showrebook/2">回收失敗</a>
+							</div>
+						</div>
+						<br><br><br>
+							<div class="row">
+								<table>
+								<% for (var i=0 ; i < result.length ; i++) { %>
+									<div class="col-4 col-12-medium">
+										<div class="pricing-item_1">
+											<p class="word_1">回收訂單編號 : <%=result[i].re_id%></p>
+											<h3><strong><a class="reuser" id="reuser">回收用戶：<%=result[i].email%></a></strong></h3>
+											<div class="rebookname">
+												<p id="rebookname">回收書籍：<%=result[i].re_name%></p>
+											</div>
+											<div class="price">
+												<p id="price">書籍原價：<%=result[i].re_price%></p>
+											</div>
+											<div class="box post">
+												<p>回饋book幣 : <%=result[i].re_point%></p>
+											</div>
+									
+											<ul class="actions">
+												<div class="col-6 actions">
+													<a href="/merchant/rebook/confirm/<%= result[i].re_id %>" class="button style1 large">確定</a>
+													<a>&nbsp&nbsp&nbsp&nbsp</a>
+													<a href="/merchant/rebook/cancel/<%= result[i].re_id %>" class="button style2 large">取消</a>
+												</div>
+											</ul>
+													
+										</div>
+									</div>
+									<% } %>
+								</table>
+							</div>
+						</div>
+					</section>
+		
+	
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>書贏●交換</title>
+		<%- include('./partials/header.ejs') %>
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<section id="header">
+				<div class="container">
+					<!-- Logo -->
+					<h1 id="logo"><a href="/wishlist">書贏●二手書交換</a></h1>
+					<%- include('./partials/nav.ejs') %>		
+				</div>
+			</section>
+					<!-- Main -->
+			<section id="main">
+				<div class="container">
+					<div class="row">
+
+						<div id="sidebar" class="col-4 col-12-medium">
+							<section>
+								<ul class="divided">
+							<%- include('./partials/mempart.ejs') %>
+							</ul>
+							</section>
+						</div>
+						<!-- Content -->
+					
+							<!-- Post -->
+							<article class="box post">
+								<article class="pricing-item" style="height:850px; width:760px;">
+									<div class="container_1">
+										<header>
+											<h1 style="height: 60px;"><font size=8>二手書交換</font></h1>
+										</header>
+									</div>
+									
+									<form action="/chbook/add" method="POST" onsubmit="return status()">
+										<a>收件人:</a>
+										<div style="height: 60px; width: 600px;" class="box post">
+											<input type="text" id="ch_name" placeholder="收件人姓名" size=20 autocomplete="off" name="ch_name" required="true">
+										</div>
+										<a>地址:</a>
+										<div style="height: 60px; width: 600px;" class="box post">
+											<input type="text" id="ch_address" placeholder="收件地址" size=20 autocomplete="off" name="ch_address" required="true">
+										</div>
+										<a>書名:</a>
+										<div style="height: 60px; width: 600px;" class="box post">
+											<input  type="text" id="ch_bname" placeholder="書名" size=20 autocomplete="on" name="ch_bname" required="true">
+										</div>
+										<a>作者:</a>
+										<div style="height: 60px; width: 600px;" class="box post">
+											<input  type="text" id="ch_bauthor" placeholder="作者" size=20 autocomplete="on" name="ch_bauthor" required="true">
+										</div>
+										<a>書況:</a>
+										<div style="height: 60px; width: 600px;" class="box post">
+											<select name="ch_bstatus" id="ch_status">
+												<option>請選擇書籍狀況</option>
+												<option value="全新">全新</option>
+												<option value="7成~9成">7成~9成</option>
+												<option value="5成~7成">5成~7成</option>	
+											</select>
+										</div>
+										<a>價格區間:</a>
+										<div style="height: 60px; width: 600px;" class="box post">
+											<select name="ch_bprice" id="ch_bprice">
+												<option>選擇價格區間</option>
+												<option value="1000up">1000up</option>
+												<option value="701~999">701~999</option>
+												<option value="501~700">501~700</option>
+												<option value="301~500">301~500</option>
+												<option value="0~300">0~300</option>	
+											</select>
+										</div>
+										<br>
+										<div class="container_1">
+											<div class="display-flex">
+												<P style="height: 60px; width: 200px;">&nbsp&nbsp</P>
+												<div class="box post" id="exchangebutton">
+													<input class="button"type="submit" value="交換" style="height: 60px; width: 350px;">
+												</div>
+												<P style="height: 60px; width: 200px;">&nbsp</P>
+												<div class="box post" id="resetbutton">
+													<input class="button"type="reset" value="清除" style="height: 60px; width: 200px;">
+												</div>
+												
+											</div>
+										</div>
+									</form>	
+									<p><%= status %></p> 
+								</article>
+							</article>		
+					</div>
+				</div>
+			</section>
+
+							
+			<!-- Footer -->
+			<%- include('./partials/footer.ejs') %>
+		
+
+			<!-- Scripts -->
+			<script src="../static/js/jquery.min.js"></script>
+			<script src="../static/js/jquery.dropotron.min.js"></script>
+			<script src="../static/js/browser.min.js"></script>
+			<script src="../static/js/breakpoints.min.js"></script>
+			<script src="../static/js/util.js"></script>
+			<script src="../static/js/main.js"></script>
+			<script src="../static/js/chbook.js"></script>
+
+		</div>
+	</body>
+</html>

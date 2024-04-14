@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+<html>
+	<head>
+		<title>書贏●商家頁面</title>
+		<%- include('./partials/headermerch.ejs') %>
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+					<div class="container">
+						<!-- Logo -->
+						<h3 id="logo"><a href="/merchant">書贏●商家頁面</a></h3>
+						<a href="/member/logout">登出帳號</a>
+					</div>
+				</section>
+
+				
+			<!-- Features -->
+				<section id="features">
+					<div class="container">
+						<div  class="col-8 col-12-medium imp-medium">
+							<a href="/merchant/chbook" class="button style2 large" style="width:150px;height:50px;">交換書</a>
+							<a href="/merchant/chbook" class="button style2 large" style="width:150px;height:50px;">回收書</a>
+							<a href="/merchant/wish" class="button style2 large" style="width:150px;height:50px;">許願書</a>
+							<a href="/merchant/order" class="button style2 large" style="width:150px;height:50px;">訂單確認</a>
+							<a href="/merchant/upload" class="button style2 large" style="width:150px;height:50px;">上架商品</a>
+						</div>
+					</div>
+				</section>
+				
+			<!-- Scripts -->
+			<script src="../static/js/jquery.min.js"></script>
+			<script src="../static/js/jquery.dropotron.min.js"></script>
+			<script src="../static/js/browser.min.js"></script>
+			<script src="../static/js/breakpoints.min.js"></script>
+			<script src="../static/js/util.js"></script>
+			<script src="../static/js/main.js"></script>
+		</div>
+	</body>
+</html>
